@@ -42,7 +42,7 @@ const BookingModal = ({ bookingOpen, handleClose, book, date, setBookingSuccess 
       serviceName: name,
       date: date.toLocaleDateString()
     }
-    fetch('http://localhost:5000/appointments', {
+    fetch('https://sheltered-crag-86495.herokuapp.com/appointments', {
       method: "POST",
       headers: {
         'content-type': 'application/json'

@@ -13,11 +13,11 @@ const UserAppointments = ({date}) => {
     const [appointments, setAppointments] = useState([])
 
     useEffect(() => {
-        const uri = `http://localhost:5000/appointments?email=${user?.email}&date=${date.toLocaleDateString()}`
+        const uri = `https://sheltered-crag-86495.herokuapp.com/appointments?email=${user?.email}&date=${date.toLocaleDateString()}`
         fetch(uri)
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [date])
+    }, [date,user.email])
     return (
         <div>
             <TableContainer component={Paper}>
@@ -32,7 +32,7 @@ const UserAppointments = ({date}) => {
                     <TableBody>
                         {appointments.map((row) => (
                             <TableRow
-                                key={row.name}
+                                key={row._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
